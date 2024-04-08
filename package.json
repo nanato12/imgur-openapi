@@ -1,0 +1,25 @@
+{
+  "name": "imgur-openapi",
+  "version": "1.0.0",
+  "description": "OpenAPI for Imgur API",
+  "scripts": {
+    "generate": "p2o ./postman/collection.json -f ./output/openapi.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanato12/imgur-openapi.git"
+  },
+  "keywords": [
+    "imgur",
+    "openapi"
+  ],
+  "author": "nanato12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanato12/imgur-openapi/issues"
+  },
+  "homepage": "https://github.com/nanato12/imgur-openapi#readme",
+  "dependencies": {
+    "postman-to-openapi": "^3.0.1"
+  }
+}
