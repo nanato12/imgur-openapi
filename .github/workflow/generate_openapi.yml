@@ -1,0 +1,39 @@
+name: Generate OpenAPI Specification File
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-openapi-yml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: generate README.md
+        run: npm run generate
+
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: Generate openapi.yml
+          delete-branch: true
+          title: Generate openapi.yml
+          reviewers: nanato12
